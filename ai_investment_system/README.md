@@ -1,55 +1,55 @@
-# AI       f V X e   v2.0
+# AI投資判断システム v2.0
 
-  I Ȋ          f x   V X e  
+包括的な株式投資判断支援システム
 
-##     
+## 特徴
 
--      Ԏ  ł̎  v \  
--    s p ^ [   ̊w K Ɖ  
--    X N      ]  
--  ΏƊw K ɂ 鐸 x    
--   I ȃo b N e X g @ \
+- 多時間軸での収益予測
+- 失敗パターンの学習と回避
+- リスク調整後評価
+- 対照学習による精度向上
+- 包括的なバックテスト機能
 
-##  Z b g A b v
+## セットアップ
 
-1.  ˑ  ֌W ̃C   X g [  :
+1. 依存関係のインストール:
    ```bash
    pip install -r requirements.txt
    ```
 
-2.    ϐ  ̐ݒ :
+2. 環境変数の設定:
    ```bash
    cp .env.template .env
-   # .env t @ C    ҏW    API L [  ݒ 
+   # .envファイルを編集してAPIキーを設定
    ```
 
-3.  V X e   ̋N  :
+3. システムの起動:
    ```bash
    python main.py
    ```
 
-##  f B   N g   \  
+## ディレクトリ構成
 
 ```
 ai_investment_system/
-       data/                #  f [ ^ f B   N g  
-            raw/            #    f [ ^
-            processed/      #      ς݃f [ ^
-            features/       #      ʃf [ ^
-       models/             #  w K ς݃  f  
-       config/             #  ݒ t @ C  
-       scripts/            # Python X N   v g
-       notebooks/          # Jupyter notebooks
-       tests/              #  e X g t @ C  
-       logs/               #    O t @ C  
-       results/            #    ʃf [ ^
-       backtest/           #  o b N e X g    
-       deployment/         #  f v   C     g p t @ C  
+├── data/                # データディレクトリ
+│   ├── raw/            # 生データ
+│   ├── processed/      # 処理済みデータ
+│   └── features/       # 特徴量データ
+├── models/             # 学習済みモデル
+├── config/             # 設定ファイル
+├── scripts/            # Pythonスクリプト
+├── notebooks/          # Jupyter notebooks
+├── tests/              # テストファイル
+├── logs/               # ログファイル
+├── results/            # 結果データ
+├── backtest/           # バックテスト結果
+└── deployment/         # デプロイメント用ファイル
 ```
 
-##  g p   @
+## 使用方法
 
-###  f [ ^   W
+### データ収集
 ```python
 from scripts.data_collector import DataCollector
 
@@ -57,7 +57,7 @@ collector = DataCollector(config)
 data = collector.fetch_stock_data('AAPL', '1y')
 ```
 
-###      ʍ쐬
+### 特徴量作成
 ```python
 from scripts.feature_engineer import FeatureEngineer
 
@@ -65,7 +65,7 @@ engineer = FeatureEngineer(config)
 features = engineer.create_technical_features(data)
 ```
 
-###    s p ^ [   w K
+### 失敗パターン学習
 ```python
 from scripts.failure_learner import FailureLearner
 
@@ -73,7 +73,7 @@ learner = FailureLearner(config)
 pattern = learner.classify_failure(data, prediction, actual)
 ```
 
-###  ]  
+### 評価
 ```python
 from scripts.evaluator import ComprehensiveEvaluator
 
@@ -81,26 +81,26 @@ evaluator = ComprehensiveEvaluator(config)
 results = evaluator.evaluate_predictions(predictions, actual_data)
 ```
 
-##  ݒ 
+## 設定
 
-###  ]     Ԏ 
-- 21   i1     j
-- 63   i3     j
-- 126   i6     j
-- 252   i1 N j
+### 評価時間軸
+- 21日（1ヶ月）
+- 63日（3ヶ月）
+- 126日（6ヶ月）
+- 252日（1年）
 
-###      
-- 1     F5% ȏ ̎  v
-- 3     F10% ȏ ̎  v
-- 6     F15% ȏ ̎  v
-- 1 N F20% ȏ ̎  v
+### 成功基準
+- 1ヶ月：5%以上の収益
+- 3ヶ月：10%以上の収益
+- 6ヶ月：15%以上の収益
+- 1年：20%以上の収益
 
-###    s p ^ [  
--    {   e B   e B N   b V  
--    Z f B X A | C   g
--  Z N ^ [   [ e [ V    
--         @
+### 失敗パターン
+- 高ボラティリティクラッシュ
+- 決算ディスアポイント
+- セクターローテーション
+- 流動性危機
 
-##    C Z   X
+## ライセンス
 
 MIT License
