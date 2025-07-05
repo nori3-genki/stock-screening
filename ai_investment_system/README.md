@@ -1,55 +1,55 @@
-# AI“Š‘”»’fƒVƒXƒeƒ€ v2.0
+# AI       f V X e   v2.0
 
-•ïŠ‡“I‚ÈŠ”®“Š‘”»’fx‰‡ƒVƒXƒeƒ€
+ ïŠ‡ I ÈŠ          f x   V X e  
 
-## “Á’¥
+##     
 
-- ‘½ŠÔ²‚Å‚Ìû‰v—\‘ª
-- ¸”sƒpƒ^[ƒ“‚ÌŠwK‚Æ‰ñ”ğ
-- ƒŠƒXƒN’²®Œã•]‰¿
-- ‘ÎÆŠwK‚É‚æ‚é¸“xŒüã
-- •ïŠ‡“I‚ÈƒoƒbƒNƒeƒXƒg‹@”\
+-      Ô  Å‚Ì  v \  
+-    s p ^ [   ÌŠw K Æ‰  
+-    X N      ]  
+-  ÎÆŠw K É‚ é¸ x    
+-  ïŠ‡ I Èƒo b N e X g @ \
 
-## ƒZƒbƒgƒAƒbƒv
+##  Z b g A b v
 
-1. ˆË‘¶ŠÖŒW‚ÌƒCƒ“ƒXƒg[ƒ‹:
+1.  Ë‘  ÖŒW ÌƒC   X g [  :
    ```bash
    pip install -r requirements.txt
    ```
 
-2. ŠÂ‹«•Ï”‚Ìİ’è:
+2.  Â‹  Ï  Ìİ’ :
    ```bash
    cp .env.template .env
-   # .envƒtƒ@ƒCƒ‹‚ğ•ÒW‚µ‚ÄAPIƒL[‚ğİ’è
+   # .env t @ C    ÒW    API L [  İ’ 
    ```
 
-3. ƒVƒXƒeƒ€‚Ì‹N“®:
+3.  V X e   Ì‹N  :
    ```bash
    python main.py
    ```
 
-## ƒfƒBƒŒƒNƒgƒŠ\¬
+##  f B   N g   \  
 
 ```
 ai_investment_system/
-„¥„Ÿ„Ÿ data/                # ƒf[ƒ^ƒfƒBƒŒƒNƒgƒŠ
-„    „¥„Ÿ„Ÿ raw/            # ¶ƒf[ƒ^
-„    „¥„Ÿ„Ÿ processed/      # ˆ—Ï‚İƒf[ƒ^
-„    „¤„Ÿ„Ÿ features/       # “Á’¥—Êƒf[ƒ^
-„¥„Ÿ„Ÿ models/             # ŠwKÏ‚İƒ‚ƒfƒ‹
-„¥„Ÿ„Ÿ config/             # İ’èƒtƒ@ƒCƒ‹
-„¥„Ÿ„Ÿ scripts/            # PythonƒXƒNƒŠƒvƒg
-„¥„Ÿ„Ÿ notebooks/          # Jupyter notebooks
-„¥„Ÿ„Ÿ tests/              # ƒeƒXƒgƒtƒ@ƒCƒ‹
-„¥„Ÿ„Ÿ logs/               # ƒƒOƒtƒ@ƒCƒ‹
-„¥„Ÿ„Ÿ results/            # Œ‹‰Êƒf[ƒ^
-„¥„Ÿ„Ÿ backtest/           # ƒoƒbƒNƒeƒXƒgŒ‹‰Ê
-„¤„Ÿ„Ÿ deployment/         # ƒfƒvƒƒCƒƒ“ƒg—pƒtƒ@ƒCƒ‹
+       data/                #  f [ ^ f B   N g  
+            raw/            #    f [ ^
+            processed/      #      Ï‚İƒf [ ^
+            features/       #      Êƒf [ ^
+       models/             #  w K Ï‚İƒ  f  
+       config/             #  İ’ t @ C  
+       scripts/            # Python X N   v g
+       notebooks/          # Jupyter notebooks
+       tests/              #  e X g t @ C  
+       logs/               #    O t @ C  
+       results/            #    Êƒf [ ^
+       backtest/           #  o b N e X g    
+       deployment/         #  f v   C     g p t @ C  
 ```
 
-## g—p•û–@
+##  g p   @
 
-### ƒf[ƒ^ûW
+###  f [ ^   W
 ```python
 from scripts.data_collector import DataCollector
 
@@ -57,7 +57,7 @@ collector = DataCollector(config)
 data = collector.fetch_stock_data('AAPL', '1y')
 ```
 
-### “Á’¥—Êì¬
+###      Êì¬
 ```python
 from scripts.feature_engineer import FeatureEngineer
 
@@ -65,7 +65,7 @@ engineer = FeatureEngineer(config)
 features = engineer.create_technical_features(data)
 ```
 
-### ¸”sƒpƒ^[ƒ“ŠwK
+###    s p ^ [   w K
 ```python
 from scripts.failure_learner import FailureLearner
 
@@ -73,7 +73,7 @@ learner = FailureLearner(config)
 pattern = learner.classify_failure(data, prediction, actual)
 ```
 
-### •]‰¿
+###  ]  
 ```python
 from scripts.evaluator import ComprehensiveEvaluator
 
@@ -81,26 +81,26 @@ evaluator = ComprehensiveEvaluator(config)
 results = evaluator.evaluate_predictions(predictions, actual_data)
 ```
 
-## İ’è
+##  İ’ 
 
-### •]‰¿ŠÔ²
-- 21“úi1ƒ–Œj
-- 63“úi3ƒ–Œj
-- 126“úi6ƒ–Œj
-- 252“úi1”Nj
+###  ]     Ô 
+- 21   i1     j
+- 63   i3     j
+- 126   i6     j
+- 252   i1 N j
 
-### ¬Œ÷Šî€
-- 1ƒ–ŒF5%ˆÈã‚Ìû‰v
-- 3ƒ–ŒF10%ˆÈã‚Ìû‰v
-- 6ƒ–ŒF15%ˆÈã‚Ìû‰v
-- 1”NF20%ˆÈã‚Ìû‰v
+###      î€
+- 1     F5% È Ì  v
+- 3     F10% È Ì  v
+- 6     F15% È Ì  v
+- 1 N F20% È Ì  v
 
-### ¸”sƒpƒ^[ƒ“
-- ‚ƒ{ƒ‰ƒeƒBƒŠƒeƒBƒNƒ‰ƒbƒVƒ…
-- ŒˆZƒfƒBƒXƒAƒ|ƒCƒ“ƒg
-- ƒZƒNƒ^[ƒ[ƒe[ƒVƒ‡ƒ“
-- —¬“®«Šë‹@
+###    s p ^ [  
+-    {   e B   e B N   b V  
+-    Z f B X A | C   g
+-  Z N ^ [   [ e [ V    
+-         @
 
-## ƒ‰ƒCƒZƒ“ƒX
+##    C Z   X
 
 MIT License
