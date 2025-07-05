@@ -1,0 +1,23 @@
+{
+  "name": "stock-screening",
+  "version": "1.0.0",
+  "description": "楽天API＋チャート分析＋Slack通知付き自動スクリーニングシステム",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nori3-genki/stock-screening.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nori3-genki/stock-screening/issues"
+  },
+  "homepage": "https://github.com/nori3-genki/stock-screening#readme",
+  "dependencies": {
+    "dotenv": "^17.0.1"
+  }
+}

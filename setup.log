@@ -1,0 +1,53 @@
+2025-07-05 12:42:08,301 - INFO - AI投資判断システムのセットアップを開始します...
+2025-07-05 12:42:08,305 - INFO - Created directory: ai_investment_system\data\raw
+2025-07-05 12:42:08,305 - INFO - Created directory: ai_investment_system\data\processed
+2025-07-05 12:42:08,305 - INFO - Created directory: ai_investment_system\data\features
+2025-07-05 12:42:08,307 - INFO - Created directory: ai_investment_system\models
+2025-07-05 12:42:08,307 - INFO - Created directory: ai_investment_system\config
+2025-07-05 12:42:08,308 - INFO - Created directory: ai_investment_system\scripts
+2025-07-05 12:42:08,308 - INFO - Created directory: ai_investment_system\notebooks
+2025-07-05 12:42:08,309 - INFO - Created directory: ai_investment_system\tests
+2025-07-05 12:42:08,309 - INFO - Created directory: ai_investment_system\logs
+2025-07-05 12:42:08,310 - INFO - Created directory: ai_investment_system\results
+2025-07-05 12:42:08,311 - INFO - Created directory: ai_investment_system\backtest
+2025-07-05 12:42:08,312 - INFO - Created directory: ai_investment_system\deployment
+2025-07-05 12:42:08,313 - INFO - Installing dependencies...
+2025-07-05 12:42:46,213 - ERROR - Failed to install dependencies: Command '['C:\\Users\\gt522\\AppData\\Local\\Programs\\Python\\Python311\\python.exe', '-m', 'pip', 'install', '-r', 'ai_investment_system\\requirements.txt']' returned non-zero exit status 1.
+2025-07-05 12:42:46,216 - INFO - Configuration files created
+2025-07-05 12:42:46,219 - INFO - Core modules created
+2025-07-05 12:42:46,221 - INFO - Evaluation system created
+2025-07-05 12:42:46,320 - ERROR - Failed to get ticker 'AAPL' reason: Expecting value: line 1 column 1 (char 0)
+2025-07-05 12:42:46,379 - ERROR - 
+1 Failed download:
+2025-07-05 12:42:46,379 - ERROR - ['AAPL']: Exception('%ticker%: No price data found, symbol may be delisted (period=2y)')
+2025-07-05 12:42:46,383 - INFO - Downloaded sample data for AAPL
+2025-07-05 12:42:46,409 - ERROR - Failed to get ticker 'GOOGL' reason: Expecting value: line 1 column 1 (char 0)
+2025-07-05 12:42:46,455 - ERROR - 
+1 Failed download:
+2025-07-05 12:42:46,455 - ERROR - ['GOOGL']: Exception('%ticker%: No price data found, symbol may be delisted (period=2y)')
+2025-07-05 12:42:46,457 - INFO - Downloaded sample data for GOOGL
+2025-07-05 12:42:46,501 - ERROR - Failed to get ticker 'MSFT' reason: Expecting value: line 1 column 1 (char 0)
+2025-07-05 12:42:46,530 - ERROR - 
+1 Failed download:
+2025-07-05 12:42:46,530 - ERROR - ['MSFT']: Exception('%ticker%: No price data found, symbol may be delisted (period=2y)')
+2025-07-05 12:42:46,531 - INFO - Downloaded sample data for MSFT
+2025-07-05 12:42:46,585 - ERROR - Failed to get ticker 'TSLA' reason: Expecting value: line 1 column 1 (char 0)
+2025-07-05 12:42:46,637 - ERROR - 
+1 Failed download:
+2025-07-05 12:42:46,637 - ERROR - ['TSLA']: Exception('%ticker%: No price data found, symbol may be delisted (period=2y)')
+2025-07-05 12:42:46,639 - INFO - Downloaded sample data for TSLA
+2025-07-05 12:42:46,664 - ERROR - Failed to get ticker 'AMZN' reason: Expecting value: line 1 column 1 (char 0)
+2025-07-05 12:42:46,710 - ERROR - 
+1 Failed download:
+2025-07-05 12:42:46,710 - ERROR - ['AMZN']: Exception('%ticker%: No price data found, symbol may be delisted (period=2y)')
+2025-07-05 12:42:46,711 - INFO - Downloaded sample data for AMZN
+2025-07-05 12:42:46,713 - INFO - Startup script created
+2025-07-05 12:42:46,713 - INFO - Documentation created
+2025-07-05 12:42:46,713 - INFO - ==================================================
+2025-07-05 12:42:46,713 - INFO - セットアップが完了しました！
+2025-07-05 12:42:46,714 - INFO - ==================================================
+2025-07-05 12:42:46,714 - INFO - プロジェクトディレクトリ: C:\Users\gt522\stock-screening\ai_investment_system
+2025-07-05 12:42:46,714 - INFO - 次のステップ:
+2025-07-05 12:42:46,714 - INFO - 1. .env.templateを.envにコピーしてAPIキーを設定
+2025-07-05 12:42:46,714 - INFO - 2. python main.pyでシステムを起動
+2025-07-05 12:42:46,714 - INFO - 3. notebooks/ディレクトリでJupyter notebookを使用

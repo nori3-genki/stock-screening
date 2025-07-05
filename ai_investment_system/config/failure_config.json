@@ -1,0 +1,42 @@
+{
+  "patterns": {
+    "high_volatility_crash": {
+      "threshold": -0.2,
+      "lookback_window": 30,
+      "features": [
+        "volatility",
+        "volume",
+        "momentum"
+      ]
+    },
+    "earnings_disappointment": {
+      "threshold": -0.15,
+      "lookback_window": 5,
+      "features": [
+        "eps_surprise",
+        "revenue_growth"
+      ]
+    },
+    "sector_rotation": {
+      "threshold": -0.1,
+      "lookback_window": 21,
+      "features": [
+        "sector_momentum",
+        "relative_strength"
+      ]
+    },
+    "liquidity_crisis": {
+      "threshold": -0.25,
+      "lookback_window": 7,
+      "features": [
+        "bid_ask_spread",
+        "volume_ratio"
+      ]
+    }
+  },
+  "learning": {
+    "contrastive_margin": 1.0,
+    "failure_weight": 0.3,
+    "contrastive_weight": 0.2
+  }
+}

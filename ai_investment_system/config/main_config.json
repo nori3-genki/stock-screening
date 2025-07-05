@@ -1,0 +1,55 @@
+{
+  "system": {
+    "name": "AI Investment System",
+    "version": "2.0",
+    "timezone": "Asia/Tokyo",
+    "log_level": "INFO"
+  },
+  "data": {
+    "sources": [
+      "yahoo",
+      "alpha_vantage",
+      "quandl"
+    ],
+    "update_frequency": "daily",
+    "historical_period": "5y",
+    "cache_duration": 3600
+  },
+  "model": {
+    "type": "ensemble",
+    "models": [
+      "lstm",
+      "transformer",
+      "xgboost"
+    ],
+    "training_window": 252,
+    "validation_split": 0.2,
+    "test_split": 0.1
+  },
+  "trading": {
+    "risk_free_rate": 0.02,
+    "max_position_size": 0.1,
+    "stop_loss": 0.05,
+    "take_profit": 0.15,
+    "rebalance_frequency": "monthly"
+  },
+  "evaluation": {
+    "time_horizons": [
+      21,
+      63,
+      126,
+      252
+    ],
+    "success_thresholds": {
+      "21": 0.05,
+      "63": 0.1,
+      "126": 0.15,
+      "252": 0.2
+    },
+    "risk_metrics": [
+      "sharpe",
+      "calmar",
+      "max_drawdown"
+    ]
+  }
+}
