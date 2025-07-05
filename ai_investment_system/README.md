@@ -1,55 +1,55 @@
-# AI“Š‘”»’fƒVƒXƒeƒ€ v2.0
+ï»¿# AIæŠ•è³‡åˆ¤æ–­ã‚·ã‚¹ãƒ†ãƒ  v2.0
 
-•ïŠ‡“I‚ÈŠ”®“Š‘”»’fx‰‡ƒVƒXƒeƒ€
+åŒ…æ‹¬çš„ãªæ ªå¼æŠ•è³‡åˆ¤æ–­æ”¯æ´ã‚·ã‚¹ãƒ†ãƒ 
 
-## “Á’¥
+## ç‰¹å¾´
 
-- ‘½ŠÔ²‚Å‚Ìû‰v—\‘ª
-- ¸”sƒpƒ^[ƒ“‚ÌŠwK‚Æ‰ñ”ğ
-- ƒŠƒXƒN’²®Œã•]‰¿
-- ‘ÎÆŠwK‚É‚æ‚é¸“xŒüã
-- •ïŠ‡“I‚ÈƒoƒbƒNƒeƒXƒg‹@”\
+- å¤šæ™‚é–“è»¸ã§ã®åç›Šäºˆæ¸¬
+- å¤±æ•—ãƒ‘ã‚¿ãƒ¼ãƒ³ã®å­¦ç¿’ã¨å›é¿
+- ãƒªã‚¹ã‚¯èª¿æ•´å¾Œè©•ä¾¡
+- å¯¾ç…§å­¦ç¿’ã«ã‚ˆã‚‹ç²¾åº¦å‘ä¸Š
+- åŒ…æ‹¬çš„ãªãƒãƒƒã‚¯ãƒ†ã‚¹ãƒˆæ©Ÿèƒ½
 
-## ƒZƒbƒgƒAƒbƒv
+## ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—
 
-1. ˆË‘¶ŠÖŒW‚ÌƒCƒ“ƒXƒg[ƒ‹:
+1. ä¾å­˜é–¢ä¿‚ã®ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«:
    ```bash
    pip install -r requirements.txt
    ```
 
-2. ŠÂ‹«•Ï”‚Ìİ’è:
+2. ç’°å¢ƒå¤‰æ•°ã®è¨­å®š:
    ```bash
    cp .env.template .env
-   # .envƒtƒ@ƒCƒ‹‚ğ•ÒW‚µ‚ÄAPIƒL[‚ğİ’è
+   # .envãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç·¨é›†ã—ã¦APIã‚­ãƒ¼ã‚’è¨­å®š
    ```
 
-3. ƒVƒXƒeƒ€‚Ì‹N“®:
+3. ã‚·ã‚¹ãƒ†ãƒ ã®èµ·å‹•:
    ```bash
    python main.py
    ```
 
-## ƒfƒBƒŒƒNƒgƒŠ\¬
+## ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªæ§‹æˆ
 
 ```
 ai_investment_system/
-„¥„Ÿ„Ÿ data/                # ƒf[ƒ^ƒfƒBƒŒƒNƒgƒŠ
-„    „¥„Ÿ„Ÿ raw/            # ¶ƒf[ƒ^
-„    „¥„Ÿ„Ÿ processed/      # ˆ—Ï‚İƒf[ƒ^
-„    „¤„Ÿ„Ÿ features/       # “Á’¥—Êƒf[ƒ^
-„¥„Ÿ„Ÿ models/             # ŠwKÏ‚İƒ‚ƒfƒ‹
-„¥„Ÿ„Ÿ config/             # İ’èƒtƒ@ƒCƒ‹
-„¥„Ÿ„Ÿ scripts/            # PythonƒXƒNƒŠƒvƒg
-„¥„Ÿ„Ÿ notebooks/          # Jupyter notebooks
-„¥„Ÿ„Ÿ tests/              # ƒeƒXƒgƒtƒ@ƒCƒ‹
-„¥„Ÿ„Ÿ logs/               # ƒƒOƒtƒ@ƒCƒ‹
-„¥„Ÿ„Ÿ results/            # Œ‹‰Êƒf[ƒ^
-„¥„Ÿ„Ÿ backtest/           # ƒoƒbƒNƒeƒXƒgŒ‹‰Ê
-„¤„Ÿ„Ÿ deployment/         # ƒfƒvƒƒCƒƒ“ƒg—pƒtƒ@ƒCƒ‹
+â”œâ”€â”€ data/                # ãƒ‡ãƒ¼ã‚¿ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
+â”‚   â”œâ”€â”€ raw/            # ç”Ÿãƒ‡ãƒ¼ã‚¿
+â”‚   â”œâ”€â”€ processed/      # å‡¦ç†æ¸ˆã¿ãƒ‡ãƒ¼ã‚¿
+â”‚   â””â”€â”€ features/       # ç‰¹å¾´é‡ãƒ‡ãƒ¼ã‚¿
+â”œâ”€â”€ models/             # å­¦ç¿’æ¸ˆã¿ãƒ¢ãƒ‡ãƒ«
+â”œâ”€â”€ config/             # è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«
+â”œâ”€â”€ scripts/            # Pythonã‚¹ã‚¯ãƒªãƒ—ãƒˆ
+â”œâ”€â”€ notebooks/          # Jupyter notebooks
+â”œâ”€â”€ tests/              # ãƒ†ã‚¹ãƒˆãƒ•ã‚¡ã‚¤ãƒ«
+â”œâ”€â”€ logs/               # ãƒ­ã‚°ãƒ•ã‚¡ã‚¤ãƒ«
+â”œâ”€â”€ results/            # çµæœãƒ‡ãƒ¼ã‚¿
+â”œâ”€â”€ backtest/           # ãƒãƒƒã‚¯ãƒ†ã‚¹ãƒˆçµæœ
+â””â”€â”€ deployment/         # ãƒ‡ãƒ—ãƒ­ã‚¤ãƒ¡ãƒ³ãƒˆç”¨ãƒ•ã‚¡ã‚¤ãƒ«
 ```
 
-## g—p•û–@
+## ä½¿ç”¨æ–¹æ³•
 
-### ƒf[ƒ^ûW
+### ãƒ‡ãƒ¼ã‚¿åé›†
 ```python
 from scripts.data_collector import DataCollector
 
@@ -57,7 +57,7 @@ collector = DataCollector(config)
 data = collector.fetch_stock_data('AAPL', '1y')
 ```
 
-### “Á’¥—Êì¬
+### ç‰¹å¾´é‡ä½œæˆ
 ```python
 from scripts.feature_engineer import FeatureEngineer
 
@@ -65,7 +65,7 @@ engineer = FeatureEngineer(config)
 features = engineer.create_technical_features(data)
 ```
 
-### ¸”sƒpƒ^[ƒ“ŠwK
+### å¤±æ•—ãƒ‘ã‚¿ãƒ¼ãƒ³å­¦ç¿’
 ```python
 from scripts.failure_learner import FailureLearner
 
@@ -73,7 +73,7 @@ learner = FailureLearner(config)
 pattern = learner.classify_failure(data, prediction, actual)
 ```
 
-### •]‰¿
+### è©•ä¾¡
 ```python
 from scripts.evaluator import ComprehensiveEvaluator
 
@@ -81,26 +81,26 @@ evaluator = ComprehensiveEvaluator(config)
 results = evaluator.evaluate_predictions(predictions, actual_data)
 ```
 
-## İ’è
+## è¨­å®š
 
-### •]‰¿ŠÔ²
-- 21“úi1ƒ–Œj
-- 63“úi3ƒ–Œj
-- 126“úi6ƒ–Œj
-- 252“úi1”Nj
+### è©•ä¾¡æ™‚é–“è»¸
+- 21æ—¥ï¼ˆ1ãƒ¶æœˆï¼‰
+- 63æ—¥ï¼ˆ3ãƒ¶æœˆï¼‰
+- 126æ—¥ï¼ˆ6ãƒ¶æœˆï¼‰
+- 252æ—¥ï¼ˆ1å¹´ï¼‰
 
-### ¬Œ÷Šî€
-- 1ƒ–ŒF5%ˆÈã‚Ìû‰v
-- 3ƒ–ŒF10%ˆÈã‚Ìû‰v
-- 6ƒ–ŒF15%ˆÈã‚Ìû‰v
-- 1”NF20%ˆÈã‚Ìû‰v
+### æˆåŠŸåŸºæº–
+- 1ãƒ¶æœˆï¼š5%ä»¥ä¸Šã®åç›Š
+- 3ãƒ¶æœˆï¼š10%ä»¥ä¸Šã®åç›Š
+- 6ãƒ¶æœˆï¼š15%ä»¥ä¸Šã®åç›Š
+- 1å¹´ï¼š20%ä»¥ä¸Šã®åç›Š
 
-### ¸”sƒpƒ^[ƒ“
-- ‚ƒ{ƒ‰ƒeƒBƒŠƒeƒBƒNƒ‰ƒbƒVƒ…
-- ŒˆZƒfƒBƒXƒAƒ|ƒCƒ“ƒg
-- ƒZƒNƒ^[ƒ[ƒe[ƒVƒ‡ƒ“
-- —¬“®«Šë‹@
+### å¤±æ•—ãƒ‘ã‚¿ãƒ¼ãƒ³
+- é«˜ãƒœãƒ©ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ãƒƒã‚·ãƒ¥
+- æ±ºç®—ãƒ‡ã‚£ã‚¹ã‚¢ãƒã‚¤ãƒ³ãƒˆ
+- ã‚»ã‚¯ã‚¿ãƒ¼ãƒ­ãƒ¼ãƒ†ãƒ¼ã‚·ãƒ§ãƒ³
+- æµå‹•æ€§å±æ©Ÿ
 
-## ƒ‰ƒCƒZƒ“ƒX
+## ãƒ©ã‚¤ã‚»ãƒ³ã‚¹
 
 MIT License
