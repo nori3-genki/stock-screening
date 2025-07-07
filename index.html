@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+document.getElementById('stockSet').value = 'major30';
+            document.getElementById('maxStocks').value = '30';
+            document.getElementById('customStocks').value = '';
+            document.getElementById('customStocksDiv').style.display = 'none';<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +15,7 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
@@ -22,22 +25,25 @@
             max-width: 1200px;
             margin: 0 auto;
             background: white;
-            border-radius: 15px;
+            border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             overflow: hidden;
         }
 
         .header {
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: white;
             padding: 30px;
             text-align: center;
+            color: white;
         }
 
         .header h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
         }
 
         .header p {
@@ -45,212 +51,187 @@
             opacity: 0.9;
         }
 
-        .filters {
-            padding: 30px;
+        .content {
+            padding: 40px;
+        }
+
+        .api-setup {
             background: #f8f9fa;
-            border-bottom: 1px solid #e9ecef;
-        }
-
-        .filter-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
-        .filter-group {
-            background: white;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            border-left: 4px solid #007bff;
         }
 
-        .filter-group h3 {
-            color: #333;
-            margin-bottom: 15px;
-            font-size: 1.1em;
-        }
-
-        .filter-row {
-            display: flex;
-            align-items: center;
+        .api-setup h3 {
+            color: #007bff;
             margin-bottom: 10px;
         }
 
-        .filter-row label {
-            min-width: 80px;
-            color: #666;
-            font-weight: 500;
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
         }
 
-        .filter-row input, .filter-row select {
+        .form-group {
             flex: 1;
-            padding: 8px 12px;
-            border: 2px solid #e9ecef;
-            border-radius: 6px;
-            font-size: 14px;
+            min-width: 200px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
             transition: border-color 0.3s;
         }
 
-        .filter-row input:focus, .filter-row select:focus {
+        .form-group input:focus,
+        .form-group select:focus {
             outline: none;
             border-color: #4facfe;
+        }
+
+        .section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .section h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .buttons {
             display: flex;
             gap: 15px;
             justify-content: center;
-            margin-top: 20px;
+            margin: 30px 0;
         }
 
         .btn {
-            padding: 12px 30px;
+            padding: 15px 30px;
             border: none;
-            border-radius: 25px;
+            border-radius: 50px;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
             color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(79, 172, 254, 0.4);
         }
 
         .btn-secondary {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            background: linear-gradient(45deg, #ffecd2, #fcb69f);
             color: #333;
         }
 
-        .btn-secondary:hover {
+        .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(252, 182, 159, 0.4);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .results {
-            padding: 30px;
+            margin-top: 30px;
         }
 
-        .results h2 {
+        .results h3 {
             color: #333;
             margin-bottom: 20px;
-            font-size: 1.8em;
+            font-size: 1.5em;
         }
 
-        .stock-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .stock-card {
+        .stock-table {
+            width: 100%;
+            border-collapse: collapse;
             background: white;
             border-radius: 10px;
-            padding: 20px;
+            overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-left: 4px solid #4facfe;
         }
 
-        .stock-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        .stock-table th,
+        .stock-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
         }
 
-        .stock-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .stock-name {
-            font-size: 1.3em;
-            font-weight: 600;
+        .stock-table th {
+            background: #f8f9fa;
+            font-weight: bold;
             color: #333;
         }
 
-        .stock-code {
-            background: #4facfe;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.9em;
-            font-weight: 500;
+        .stock-table tr:hover {
+            background: #f8f9fa;
         }
 
-        .stock-metrics {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .metric {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .metric-label {
-            color: #666;
-            font-size: 0.9em;
-        }
-
-        .metric-value {
-            font-weight: 600;
-            color: #333;
-        }
-
-        .price-change {
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.9em;
-            font-weight: 600;
-        }
-
-        .price-up {
-            background: #d4edda;
-            color: #155724;
-        }
-
-        .price-down {
-            background: #f8d7da;
-            color: #721c24;
-        }
-
-        .no-results {
+        .loading {
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px;
             color: #666;
         }
 
-        .no-results h3 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
+        .error {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .status {
+            text-align: center;
+            padding: 20px;
+            font-size: 1.1em;
         }
 
         @media (max-width: 768px) {
-            .filter-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .buttons {
+            .form-row {
                 flex-direction: column;
-                align-items: center;
             }
-
-            .btn {
-                width: 200px;
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
             }
         }
     </style>
@@ -258,313 +239,411 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>📊 株式スクリーニングシステム</h1>
-            <p>条件を指定して投資対象を見つけましょう</p>
+            <h1>📈 株式スクリーニングシステム</h1>
+            <p>リアルタイム市場データで投資対象を見つけましょう</p>
         </div>
 
-        <div class="filters">
-            <div class="filter-grid">
-                <div class="filter-group">
-                    <h3>💰 価格条件</h3>
-                    <div class="filter-row">
-                        <label>最低価格:</label>
-                        <input type="number" id="minPrice" placeholder="例: 1000">
-                    </div>
-                    <div class="filter-row">
-                        <label>最高価格:</label>
-                        <input type="number" id="maxPrice" placeholder="例: 5000">
-                    </div>
+        <div class="content">
+            <div class="api-setup">
+                <h3>📡 Alpha Vantage API設定</h3>
+                <div class="form-group">
+                    <label for="apiKey">APIキー:</label>
+                    <input type="text" id="apiKey" placeholder="Alpha Vantage APIキーを入力" value="demo">
+                    <small style="color: #666; display: block; margin-top: 5px;">
+                        無料APIキーは <a href="https://www.alphavantage.co/support/#api-key" target="_blank">こちら</a> から取得できます
+                    </small>
                 </div>
+            </div>
 
-                <div class="filter-group">
-                    <h3>📈 財務指標</h3>
-                    <div class="filter-row">
-                        <label>最低PER:</label>
-                        <input type="number" id="minPER" placeholder="例: 5" step="0.1">
-                    </div>
-                    <div class="filter-row">
-                        <label>最高PER:</label>
-                        <input type="number" id="maxPER" placeholder="例: 20" step="0.1">
-                    </div>
-                    <div class="filter-row">
-                        <label>最低PBR:</label>
-                        <input type="number" id="minPBR" placeholder="例: 0.5" step="0.1">
-                    </div>
-                    <div class="filter-row">
-                        <label>最高PBR:</label>
-                        <input type="number" id="maxPBR" placeholder="例: 2" step="0.1">
-                    </div>
-                </div>
-
-                <div class="filter-group">
-                    <h3>🏢 業界・市場</h3>
-                    <div class="filter-row">
-                        <label>業種:</label>
-                        <select id="sector">
-                            <option value="">全業種</option>
-                            <option value="technology">テクノロジー</option>
-                            <option value="finance">金融</option>
-                            <option value="healthcare">ヘルスケア</option>
-                            <option value="manufacturing">製造業</option>
-                            <option value="retail">小売</option>
-                            <option value="energy">エネルギー</option>
+            <div class="section">
+                <h3>🎯 検索対象設定</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="stockSet">銘柄セット:</label>
+                        <select id="stockSet" onchange="updateStockSet()">
+                            <option value="major30">主要30銘柄</option>
+                            <option value="nikkei225">日経225</option>
+                            <option value="topix100">TOPIX100</option>
+                            <option value="tech">テクノロジー株</option>
+                            <option value="pharma">製薬株</option>
+                            <option value="finance">金融株</option>
+                            <option value="custom">カスタム銘柄</option>
                         </select>
                     </div>
-                    <div class="filter-row">
-                        <label>市場:</label>
+                    <div class="form-group">
+                        <label for="maxStocks">最大取得数:</label>
+                        <select id="maxStocks">
+                            <option value="10">10銘柄</option>
+                            <option value="20">20銘柄</option>
+                            <option value="30" selected>30銘柄</option>
+                            <option value="50">50銘柄</option>
+                            <option value="100">100銘柄</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" id="customStocksDiv" style="display: none;">
+                    <label for="customStocks">カスタム銘柄コード（カンマ区切り）:</label>
+                    <textarea id="customStocks" placeholder="例: 7203.T, 6758.T, 9984.T, 4519.T" rows="3"></textarea>
+                    <small style="color: #666; display: block; margin-top: 5px;">
+                        日本株は「銘柄コード.T」、米国株は「AAPL」形式で入力してください
+                    </small>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>💰 価格条件</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="minPrice">最低価格 (円):</label>
+                        <input type="number" id="minPrice" placeholder="例: 1000" step="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="maxPrice">最高価格 (円):</label>
+                        <input type="number" id="maxPrice" placeholder="例: 50000" step="1">
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>📊 財務指標</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="minVolume">最低出来高:</label>
+                        <input type="number" id="minVolume" placeholder="例: 100000">
+                    </div>
+                    <div class="form-group">
+                        <label for="maxVolume">最高出来高:</label>
+                        <input type="number" id="maxVolume" placeholder="例: 10000000">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="minChange">最低変化率 (%):</label>
+                        <input type="number" id="minChange" placeholder="例: -10" step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="maxChange">最高変化率 (%):</label>
+                        <input type="number" id="maxChange" placeholder="例: 10" step="0.1">
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h3>🏢 業界・市場</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="market">市場:</label>
                         <select id="market">
-                            <option value="">全市場</option>
-                            <option value="prime">プライム</option>
-                            <option value="standard">スタンダード</option>
-                            <option value="growth">グロース</option>
+                            <option value="all">全市場</option>
+                            <option value="TSE">東京証券取引所</option>
+                            <option value="TSE1">東証プライム</option>
+                            <option value="TSE2">東証スタンダード</option>
+                            <option value="TSE3">東証グロース</option>
                         </select>
                     </div>
-                </div>
-
-                <div class="filter-group">
-                    <h3>💎 パフォーマンス</h3>
-                    <div class="filter-row">
-                        <label>最低配当利回り:</label>
-                        <input type="number" id="minDividend" placeholder="例: 2" step="0.1">
-                    </div>
-                    <div class="filter-row">
-                        <label>最低ROE:</label>
-                        <input type="number" id="minROE" placeholder="例: 10" step="0.1">
+                    <div class="form-group">
+                        <label for="sector">セクター:</label>
+                        <select id="sector">
+                            <option value="all">全セクター</option>
+                            <option value="Automotive">自動車</option>
+                            <option value="Technology">テクノロジー</option>
+                            <option value="Healthcare">医薬品・ヘルスケア</option>
+                            <option value="Finance">金融</option>
+                            <option value="Manufacturing">製造業</option>
+                            <option value="Consumer">消費者サービス</option>
+                            <option value="Materials">素材</option>
+                            <option value="Utilities">公益事業</option>
+                        </select>
                     </div>
                 </div>
             </div>
 
             <div class="buttons">
-                <button class="btn btn-primary" onclick="searchStocks()">🔍 検索実行</button>
-                <button class="btn btn-secondary" onclick="resetFilters()">🔄 リセット</button>
+                <button class="btn btn-primary" onclick="searchStocks()">
+                    🔍 検索実行
+                </button>
+                <button class="btn btn-secondary" onclick="resetForm()">
+                    🔄 リセット
+                </button>
             </div>
-        </div>
 
-        <div class="results">
-            <h2>検索結果</h2>
-            <div id="stockResults" class="stock-grid">
-                <div class="no-results">
-                    <h3>検索条件を設定してください</h3>
-                    <p>上記のフィルターを使用して、あなたに合った銘柄を見つけましょう</p>
+            <div class="results">
+                <h3>検索結果</h3>
+                <div id="searchResults" class="status">
+                    検索条件を設定してください
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // サンプル株式データ
-        const sampleStocks = [
-            {
-                name: "トヨタ自動車",
-                code: "7203",
-                price: 2850,
-                change: "+1.2%",
-                changeType: "up",
-                per: 12.3,
-                pbr: 1.1,
-                dividend: 2.8,
-                roe: 11.2,
-                sector: "manufacturing",
-                market: "prime"
-            },
-            {
-                name: "ソフトバンクグループ",
-                code: "9984",
-                price: 6420,
-                change: "-0.8%",
-                changeType: "down",
-                per: 15.7,
-                pbr: 1.3,
-                dividend: 0.5,
-                roe: 8.9,
-                sector: "technology",
-                market: "prime"
-            },
-            {
-                name: "三菱UFJフィナンシャル・グループ",
-                code: "8306",
-                price: 1245,
-                change: "+2.1%",
-                changeType: "up",
-                per: 8.9,
-                pbr: 0.8,
-                dividend: 3.2,
-                roe: 9.1,
-                sector: "finance",
-                market: "prime"
-            },
-            {
-                name: "キーエンス",
-                code: "6861",
-                price: 58900,
-                change: "+0.5%",
-                changeType: "up",
-                per: 35.2,
-                pbr: 8.1,
-                dividend: 1.2,
-                roe: 23.1,
-                sector: "technology",
-                market: "prime"
-            },
-            {
-                name: "ファーストリテイリング",
-                code: "9983",
-                price: 89600,
-                change: "-1.3%",
-                changeType: "down",
-                per: 18.4,
-                pbr: 3.2,
-                dividend: 1.1,
-                roe: 17.3,
-                sector: "retail",
-                market: "prime"
-            },
-            {
-                name: "武田薬品工業",
-                code: "4502",
-                price: 3890,
-                change: "+0.7%",
-                changeType: "up",
-                per: 13.6,
-                pbr: 1.2,
-                dividend: 4.5,
-                roe: 8.8,
-                sector: "healthcare",
-                market: "prime"
-            },
-            {
-                name: "ENEOS",
-                code: "5020",
-                price: 456,
-                change: "+1.8%",
-                changeType: "up",
-                per: 7.2,
-                pbr: 0.6,
-                dividend: 5.2,
-                roe: 8.3,
-                sector: "energy",
-                market: "prime"
-            },
-            {
-                name: "セブン&アイ・ホールディングス",
-                code: "3382",
-                price: 6180,
-                change: "-0.4%",
-                changeType: "down",
-                per: 16.8,
-                pbr: 1.4,
-                dividend: 2.9,
-                roe: 8.4,
-                sector: "retail",
-                market: "prime"
+        // サンプル株式データ（実際のAPIから取得するデータの構造例）
+        let stockDatabase = [];
+        let searchHistory = [];
+
+        // Alpha Vantage APIから株式データを取得
+        async function fetchStockData(symbol, apiKey) {
+            try {
+                const response = await fetch(
+                    `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`
+                );
+                const data = await response.json();
+                
+                if (data['Global Quote']) {
+                    const quote = data['Global Quote'];
+                    return {
+                        symbol: quote['01. symbol'],
+                        price: parseFloat(quote['05. price']),
+                        change: parseFloat(quote['09. change']),
+                        changePercent: parseFloat(quote['10. change percent'].replace('%', '')),
+                        volume: parseInt(quote['06. volume']),
+                        high: parseFloat(quote['03. high']),
+                        low: parseFloat(quote['04. low']),
+                        open: parseFloat(quote['02. open']),
+                        previousClose: parseFloat(quote['08. previous close']),
+                        name: getJapaneseStockName(quote['01. symbol'])
+                    };
+                }
+                return null;
+            } catch (error) {
+                console.error('API取得エラー:', error);
+                return null;
             }
-        ];
-
-        function searchStocks() {
-            const filters = {
-                minPrice: parseFloat(document.getElementById('minPrice').value) || 0,
-                maxPrice: parseFloat(document.getElementById('maxPrice').value) || Infinity,
-                minPER: parseFloat(document.getElementById('minPER').value) || 0,
-                maxPER: parseFloat(document.getElementById('maxPER').value) || Infinity,
-                minPBR: parseFloat(document.getElementById('minPBR').value) || 0,
-                maxPBR: parseFloat(document.getElementById('maxPBR').value) || Infinity,
-                minDividend: parseFloat(document.getElementById('minDividend').value) || 0,
-                minROE: parseFloat(document.getElementById('minROE').value) || 0,
-                sector: document.getElementById('sector').value,
-                market: document.getElementById('market').value
-            };
-
-            const filteredStocks = sampleStocks.filter(stock => {
-                return stock.price >= filters.minPrice &&
-                       stock.price <= filters.maxPrice &&
-                       stock.per >= filters.minPER &&
-                       stock.per <= filters.maxPER &&
-                       stock.pbr >= filters.minPBR &&
-                       stock.pbr <= filters.maxPBR &&
-                       stock.dividend >= filters.minDividend &&
-                       stock.roe >= filters.minROE &&
-                       (filters.sector === '' || stock.sector === filters.sector) &&
-                       (filters.market === '' || stock.market === filters.market);
-            });
-
-            displayResults(filteredStocks);
         }
 
-        function displayResults(stocks) {
-            const resultsContainer = document.getElementById('stockResults');
+        // 複数の株式データを取得
+        async function fetchMultipleStocks(symbols, apiKey) {
+            const results = [];
+            const delay = 12000; // API制限対応（無料版は5 calls/minute）
+            
+            for (let i = 0; i < symbols.length; i++) {
+                const stockData = await fetchStockData(symbols[i], apiKey);
+                if (stockData) {
+                    results.push(stockData);
+                }
+                
+                // API制限対応の待機
+                if (i < symbols.length - 1) {
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                }
+            }
+            
+            return results;
+        }
 
+        // 日本株主要30銘柄のシンボルリスト
+        const majorStocks = [
+            '7203.T',   // トヨタ自動車
+            '6758.T',   // ソニーグループ
+            '4519.T',   // 中外製薬
+            '6861.T',   // キーエンス
+            '4661.T',   // オリエンタルランド
+            '8035.T',   // 東京エレクトロン
+            '9984.T',   // ソフトバンクグループ
+            '4568.T',   // 第一三共
+            '8316.T',   // 三井住友フィナンシャルグループ
+            '7974.T',   // 任天堂
+            '6954.T',   // ファナック
+            '9432.T',   // 日本電信電話
+            '4503.T',   // アステラス製薬
+            '8058.T',   // 三菱商事
+            '9433.T',   // KDDI
+            '4452.T',   // 花王
+            '6098.T',   // リクルートホールディングス
+            '7267.T',   // 本田技研工業
+            '9983.T',   // ファーストリテイリング
+            '4578.T',   // 大塚ホールディングス
+            '8306.T',   // 三菱UFJフィナンシャル・グループ
+            '6367.T',   // ダイキン工業
+            '4324.T',   // 電通グループ
+            '6594.T',   // 日本電産
+            '8001.T',   // 伊藤忠商事
+            '6902.T',   // デンソー
+            '4922.T',   // コーセー
+            '7012.T',   // 川崎重工業
+            '6773.T',   // パイオニア
+            '4704.T'    // トレンドマイクロ
+        ];
+
+        // 検索機能
+        async function searchStocks() {
+            const apiKey = document.getElementById('apiKey').value;
+            const minPrice = parseFloat(document.getElementById('minPrice').value) || 0;
+            const maxPrice = parseFloat(document.getElementById('maxPrice').value) || Infinity;
+            const minVolume = parseInt(document.getElementById('minVolume').value) || 0;
+            const maxVolume = parseInt(document.getElementById('maxVolume').value) || Infinity;
+            const minChange = parseFloat(document.getElementById('minChange').value) || -Infinity;
+            const maxChange = parseFloat(document.getElementById('maxChange').value) || Infinity;
+            const market = document.getElementById('market').value;
+            const sector = document.getElementById('sector').value;
+
+            if (!apiKey || apiKey === '') {
+                showError('APIキーを入力してください');
+                return;
+            }
+
+            // ローディング表示
+            const selectedStockSet = document.getElementById('stockSet').value;
+            const maxStocks = document.getElementById('maxStocks').value;
+            const setName = stockSets[selectedStockSet] ? stockSets[selectedStockSet].name : 'カスタム銘柄';
+            
+            document.getElementById('searchResults').innerHTML = `
+                <div class="loading">
+                    <p>📡 ${setName}（最大${maxStocks}銘柄）のリアルタイムデータを取得中...</p>
+                    <p>少々お待ちください（API制限により時間がかかる場合があります）</p>
+                </div>
+            `;
+
+            try {
+                // 選択された銘柄セットのデータを取得
+                const selectedStocks = getSelectedStocks();
+                const stockData = await fetchMultipleStocks(selectedStocks, apiKey);
+                
+                if (stockData.length === 0) {
+                    showError('データを取得できませんでした。APIキーを確認してください。');
+                    return;
+                }
+
+                // フィルタリング
+                const filteredStocks = stockData.filter(stock => {
+                    return stock.price >= minPrice && 
+                           stock.price <= maxPrice &&
+                           stock.volume >= minVolume &&
+                           stock.volume <= maxVolume &&
+                           stock.changePercent >= minChange &&
+                           stock.changePercent <= maxChange;
+                });
+
+                // 結果表示
+                displayResults(filteredStocks);
+                
+                // 検索履歴に追加
+                addToSearchHistory({
+                    timestamp: new Date(),
+                    conditions: { minPrice, maxPrice, minVolume, maxVolume, minChange, maxChange },
+                    resultCount: filteredStocks.length
+                });
+
+            } catch (error) {
+                console.error('検索エラー:', error);
+                showError('検索中にエラーが発生しました: ' + error.message);
+            }
+        }
+
+        // 結果表示
+        function displayResults(stocks) {
+            const resultsDiv = document.getElementById('searchResults');
+            
             if (stocks.length === 0) {
-                resultsContainer.innerHTML = `
-                    <div class="no-results">
-                        <h3>条件に合致する銘柄が見つかりませんでした</h3>
-                        <p>検索条件を調整してもう一度お試しください</p>
+                resultsDiv.innerHTML = `
+                    <div class="status">
+                        <p>条件に一致する株式が見つかりませんでした</p>
+                        <p>条件を調整して再度検索してください</p>
                     </div>
                 `;
                 return;
             }
 
-            const stockCards = stocks.map(stock => `
-                <div class="stock-card">
-                    <div class="stock-header">
-                        <div class="stock-name">${stock.name}</div>
-                        <div class="stock-code">${stock.code}</div>
-                    </div>
-                    <div class="stock-metrics">
-                        <div class="metric">
-                            <span class="metric-label">株価:</span>
-                            <span class="metric-value">¥${stock.price.toLocaleString()}</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-label">変動:</span>
-                            <span class="price-change ${stock.changeType === 'up' ? 'price-up' : 'price-down'}">${stock.change}</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-label">PER:</span>
-                            <span class="metric-value">${stock.per}倍</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-label">PBR:</span>
-                            <span class="metric-value">${stock.pbr}倍</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-label">配当利回り:</span>
-                            <span class="metric-value">${stock.dividend}%</span>
-                        </div>
-                        <div class="metric">
-                            <span class="metric-label">ROE:</span>
-                            <span class="metric-value">${stock.roe}%</span>
-                        </div>
-                    </div>
+            let tableHTML = `
+                <div class="success">
+                    ${stocks.length}件の株式が見つかりました
                 </div>
-            `).join('');
+                <table class="stock-table">
+                    <thead>
+                        <tr>
+                            <th>銘柄コード</th>
+                            <th>企業名</th>
+                            <th>現在価格</th>
+                            <th>変化額</th>
+                            <th>変化率</th>
+                            <th>出来高</th>
+                            <th>高値</th>
+                            <th>安値</th>
+                            <th>始値</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
 
-            resultsContainer.innerHTML = stockCards;
+            stocks.forEach(stock => {
+                const changeClass = stock.change >= 0 ? 'positive' : 'negative';
+                tableHTML += `
+                    <tr>
+                        <td><strong>${stock.symbol}</strong></td>
+                        <td>${stock.name}</td>
+                        <td>¥${Math.round(stock.price).toLocaleString()}</td>
+                        <td style="color: ${stock.change >= 0 ? 'green' : 'red'}">
+                            ${stock.change >= 0 ? '+' : ''}¥${Math.round(stock.change).toLocaleString()}
+                        </td>
+                        <td style="color: ${stock.changePercent >= 0 ? 'green' : 'red'}">
+                            ${stock.changePercent >= 0 ? '+' : ''}${stock.changePercent.toFixed(2)}%
+                        </td>
+                        <td>${stock.volume.toLocaleString()}</td>
+                        <td>¥${Math.round(stock.high).toLocaleString()}</td>
+                        <td>¥${Math.round(stock.low).toLocaleString()}</td>
+                        <td>¥${Math.round(stock.open).toLocaleString()}</td>
+                    </tr>
+                `;
+            });
+
+            tableHTML += `
+                    </tbody>
+                </table>
+            `;
+
+            resultsDiv.innerHTML = tableHTML;
         }
 
-        function resetFilters() {
-            document.getElementById('minPrice').value = '';
-            document.getElementById('maxPrice').value = '';
-            document.getElementById('minPER').value = '';
-            document.getElementById('maxPER').value = '';
-            document.getElementById('minPBR').value = '';
-            document.getElementById('maxPBR').value = '';
-            document.getElementById('minDividend').value = '';
-            document.getElementById('minROE').value = '';
-            document.getElementById('sector').value = '';
-            document.getElementById('market').value = '';
-
-            document.getElementById('stockResults').innerHTML = `
-                <div class="no-results">
-                    <h3>検索条件を設定してください</h3>
-                    <p>上記のフィルターを使用して、あなたに合った銘柄を見つけましょう</p>
+        // エラー表示
+        function showError(message) {
+            document.getElementById('searchResults').innerHTML = `
+                <div class="error">
+                    <strong>エラー:</strong> ${message}
                 </div>
             `;
         }
 
-        // ページ読み込み時に全ての株式を表示
-        window.onload = function() {
-            displayResults(sampleStocks);
-        };
+        // 検索履歴に追加
+        function addToSearchHistory(searchData) {
+            searchHistory.push(searchData);
+            // 最新10件のみ保持
+            if (searchHistory.length > 10) {
+                searchHistory.shift();
+            }
+        }
+
+        // フォームリセット
+        function resetForm() {
+            document.getElementById('minPrice').value = '';
+            document.getElementById('maxPrice').value = '';
+            document.getElementById('minVolume').value = '';
+            document.getElementById('maxVolume').value = '';
+            document.getElementById('minChange').value = '';
+            document.getElementById('maxChange').value = '';
+            document.getElementById('market').value = 'all';
+            document.getElementById('sector').value = 'all';
+            
+            document.getElementById('searchResults').innerHTML = `
+                <div class="status">
+                    検索条件を設定してください
+                </div>
+            `;
+        }
+
+        // 初期化
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('株式スクリーニングシステムが初期化されました');
+            
+            // デモ用の注意書き表示
+            if (document.getElementById('apiKey').value === 'demo') {
+                document.getElementById('searchResults').innerHTML = `
+                    <div class="error">
+                        <strong>注意:</strong> 現在デモAPIキーを使用しています。<br>
+                        実際のデータを取得するには、無料のAlpha Vantage APIキーを取得してください。
+                    </div>
+                `;
+            }
+        });
     </script>
 </body>
 </html>
